@@ -42,7 +42,7 @@ function buildGauge(wfreq){
                     "rgba(210, 206, 145, .5)",
                     "rgba(232, 226, 202, .5)",
                     "rgba(240, 230, 215, .5)",
-                    "rgba(255, 225, 225, .5)",
+                    "rgba(255, 225, 225, 0)",
                 ]
 
             },
@@ -82,7 +82,7 @@ function buildGauge(wfreq){
             showgrid: false,
             range: [-1,1]
         }
-    }
+    };
 
     let GAUGE = document.getElementById("gauge");   
     Plotly.newPlot(GAUGE, data, layout);

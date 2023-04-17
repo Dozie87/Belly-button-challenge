@@ -13,11 +13,10 @@ function buildCharts(sample){
             title: "Bacteria Cultures Per Sample",
             margin: {t:0},
             hovermode: "closest",
-            xaxis: {title: "Otu ID"},
+            xaxis: {title: "OTU ID"},
             margin: {t:30}
 
         };
-
         let bubbleData = [
             {
                 x: otuIDs,
@@ -37,7 +36,7 @@ function buildCharts(sample){
 
         Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 
-        let yticks = otuIDs.slice(0, 10).map(otuID => 'OTU ${otuID}').reverse();
+        let yticks = otuIDs.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
         let barData = [
             {
                 y: yticks,
@@ -63,15 +62,15 @@ function buildMetadata(sample){
         let metadata = data.metadata;
 
         let resultArray = metadata.filter((sampleDictionary) => sampleDictionary.id == sample);
-        let result = resultArray[0];
 
+        let result = resultArray[0];
 
         let PANEL = d3.select("#sample-metadata");
 
         PANEL.html("");
 
         for (key in result) {
-            PANEL.append("h6").text("${key.toUpperCase()}: ${result[key]}")
+             PANEL.append("h6").text(`${key.toUpperCase()}: ${result[key]}`)
         }
 
         // Bonus
