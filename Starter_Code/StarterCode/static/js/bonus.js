@@ -1,9 +1,9 @@
 function buildGauge(wfreq){
-    let level = parseFloat(wfreq)+20;
+    let level = parseFloat(wfreq) * 20;
 
     let degrees = 180 - level;
     let radius = 0.5;
-    let radians = (degrees * Math.PI)/ 180;
+    let radians = (degrees * Math.PI) / 180;
     let x = radius * Math.cos(radians);
     let y = radius * Math.sin(radians);
         
@@ -19,7 +19,7 @@ function buildGauge(wfreq){
             type: "scatter",
             x: [0],
             y: [0],
-            marker: {size: 12, color: "850000"},
+            marker: { size: 12, color: "850000"},
             showlegend: false,
             name: "Freq",
             text: level,
@@ -60,17 +60,23 @@ function buildGauge(wfreq){
             {
                 type : "path",
                 path: path,
-                fillColor: "850000",
+                fillcolor: "850000",
                 line: {
                     color: "850000"
                 }
 
             }
         ],
-        title: "<b> Belly Button Washing Frequency</b<>br/>Scrub per Week",
+        title: "<b>Belly Button Washing Frequency</b><br/>Scrub per Week",
         height: 500,
         width: 500,
         xaxis: {
+            zeroline: false,
+            showticklabels: false,
+            showgrid: false,
+            range: [-1,1]
+        },
+        yaxis: {
             zeroline: false,
             showticklabels: false,
             showgrid: false,
